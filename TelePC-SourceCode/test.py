@@ -1,3 +1,3 @@
 import keylogger_server
 
-keylogger_server.keylog("LOCK")
+print(keylogger_server.keylog("LOCK"))
