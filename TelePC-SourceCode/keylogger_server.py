@@ -39,12 +39,12 @@ def lock():
         for i in range(150):
             keyboard.block_key(i)
         islock = 1
-        return "The keyboard is block"
+        return "lock keyboard is success"
     else:
         for i in range(150):
             keyboard.unblock_key(i)
         islock = 0
-    return "The keyboard is unblock"
+    return "unlock keyboard is success"
 
 def lock(islock):
     if islock == 0:
