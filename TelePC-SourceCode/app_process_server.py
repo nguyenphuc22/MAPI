@@ -135,3 +135,45 @@ def app_process(client):
             send_data(client, ls2)
             send_data(client, ls3)
     return
+
+def app_process(msg):
+
+    if "quit" in msg:
+        return
+    res = 0
+    ls1 = list()
+    ls2 = list()
+    ls3 = list()
+    #0-kill
+    #if "kill" in msg:
+    #    pid = client.recv(BUFSIZ).decode("utf8")
+    #    pid = int(pid)
+    #    try:
+    #        res = kill(pid)
+    #    except:
+    #        res = 0
+
+    #1-xem
+    if "list" in msg:
+        try:
+            if "on" in msg:
+                ls1, ls2, ls3 = list_apps()
+            else:
+                ls1, ls2, ls3 = list_processes()
+            res = 1
+        except:
+            res = 0
+    #2-xoa
+    elif "delete" in msg:
+        res = 1
+    #3 - start
+    #elif "start" in msg:
+    #    pname = client.recv(BUFSIZ).decode("utf8")
+    #    try:
+    #        start(pname)
+    #        res = 1
+    #    except:
+    #        res = 0
+
+
+    return ls1, ls2, ls3

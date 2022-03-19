@@ -1,3 +1,7 @@
 import keylogger_server
+import app_process_server
 
-print(keylogger_server.keylog("LOCK"))
+ls1,ls2,ls3 = app_process_server.app_process("mapi soft list")
+print(ls1)
+rep = "The List Software Running" + "\n" + "\n".join(ls1)
+print(rep)

