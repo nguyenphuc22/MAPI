@@ -11,4 +11,11 @@ def shutdown_logout(client):
         else:
             return
     return
-    
+
+def shutdown_logout(msg):
+    if "shutdown" in msg:
+        os.system('shutdown -s -t 15')
+    elif "logout" in msg:
+        os.system('shutdown -l')
+    else:
+        return

