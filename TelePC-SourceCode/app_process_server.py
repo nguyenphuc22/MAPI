@@ -68,6 +68,17 @@ def list_processes():
             pass
     return ls1, ls2, ls3
 
+def list_all_appp():
+    link = 'C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\'
+    lsName = list()
+    lsPath = list()
+    for root, dirs, files in os.walk(link):
+        for file in files:
+            if file.endswith('.lnk'):
+                lsName.append(file)
+                lsPath.append(root + "\\" + file)
+    return lsName,lsPath
+
 def kill(pid):
     cmd = 'taskkill.exe /F /PID ' + str(pid)
     try:
@@ -136,6 +147,9 @@ def app_process(client):
             send_data(client, ls3)
     return
 
+def run(msg):
+    os.startfile(r"{}".format(msg))
+
 def app_process(msg):
 
     if "quit" in msg:
@@ -145,19 +159,24 @@ def app_process(msg):
     ls2 = list()
     ls3 = list()
     #0-kill
-    #if "kill" in msg:
-    #    pid = client.recv(BUFSIZ).decode("utf8")
-    #    pid = int(pid)
-    #    try:
-    #        res = kill(pid)
-    #    except:
-    #        res = 0
-
+    if "kill" in msg:
+        if not ls1:
+          ls1,ls2,ls3 = list_apps()
+        nameSoft = msg[msg.index("kill") + 4:len(msg)].strip()
+        pid = ls2[ls1.index(nameSoft)]
+        pid = int(pid)
+        try:
+            res = kill(pid)
+        except:
+            res = 0
+        return "The Software" + nameSoft + " was killed"
     #1-xem
-    if "list" in msg:
+    elif "list" in msg:
         try:
             if "on" in msg:
                 ls1, ls2, ls3 = list_apps()
+            elif "all" in msg:
+                ls1, ls2 = list_all_appp()
             else:
                 ls1, ls2, ls3 = list_processes()
             res = 1
@@ -167,13 +186,17 @@ def app_process(msg):
     elif "delete" in msg:
         res = 1
     #3 - start
-    #elif "start" in msg:
-    #    pname = client.recv(BUFSIZ).decode("utf8")
-    #    try:
-    #        start(pname)
-    #        res = 1
-    #    except:
-    #        res = 0
+    elif "start" in msg:
+        if not ls2:
+            ls1,ls2 = list_all_appp()
+        pname = msg[msg.index("start") + 5:len(msg)].strip()
+        path = ls2[ls1.index(pname)]
+        try:
+            run(path)
+            res = 1
+        except:
+            res = 0
+        return "The Software" + pname + " was started"
 
 
     return ls1, ls2, ls3

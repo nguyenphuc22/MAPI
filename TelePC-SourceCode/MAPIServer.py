@@ -52,9 +52,13 @@ def listen(msg):
                 machineState = 2
                 rep = "The system is logout"
         if "soft" == string[1]:
-                listName,listPid,listProcess = app_process_server.app_process(''.join(string))
+            if "list" == string[2]:
+                listName,listPid,listProcess = app_process_server.app_process(msg)
                 rep ="\n".join(listName)
-
+            if "kill" == string[2]:
+                rep = app_process_server.app_process(msg)
+            if "start" == string[2]:
+                rep = app_process_server.app_process(msg)
     return msg + "\nREP:\n"+ rep
 
 inbox = outlook.GetDefaultFolder(6)
