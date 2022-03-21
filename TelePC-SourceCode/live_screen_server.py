@@ -1,6 +1,7 @@
 # Socket
 import socket
-
+import pyautogui
+import time
 # Work with Image
 from PIL import ImageGrab
 import io
@@ -8,6 +9,11 @@ import io
 # Thread
 from threading import Thread
 
+def capture_screenNow():
+    myScreenShot = pyautogui.screenshot()
+    timeNow = time.time() * 1000
+    myScreenShot.save(r"C:\\Users\\administrator.HCMUS\\Desktop\\save\\{}.png".format(timeNow))
+    return "C:\\Users\\administrator.HCMUS\\Desktop\\save\\{}.png".format(timeNow)
 
 def capture_screen(client):
     INFO_SZ = 100

