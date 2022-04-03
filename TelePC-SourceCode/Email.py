@@ -15,3 +15,10 @@ class Email:
 
     def getSender(self):
         return self.mail.Sender.GetExchangeUser().PrimarySmtpAddress
+
+    def isValidate(self):
+        if "hi bot" not in self.getSubject().lower():
+            return False
+        if "mapi" not in self.getBody().lower():
+            return False
+        return True

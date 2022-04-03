@@ -85,14 +85,15 @@ mailBox = MailBox.MailBox()
 while True:
 
     for mailNow in mailBox.getUnreadMails():
-        if( "hi bot" in mailNow.getSubject().lower()):
+        if(mailNow.isValidate()):
             rep = listen(mailNow.getBody())
             print(rep)
             if havePath == 1:
                 sendBack("I'm bot",rep,mailNow.getSender(),path=utilPath(rep))
             else:
                 sendBack("I'm bot", rep, mailNow.getSender(),path="")
-
+        else:
+            print(False)
         if machineState == 0:
             shutdown_logout_server.shutdown_logout("shutdown")
         elif machineState == 2:
