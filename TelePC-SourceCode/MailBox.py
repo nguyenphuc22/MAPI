@@ -18,3 +18,4 @@ class MailBox:
         for message in result:
             mails.append(Email.Email(message))
         return mails
+

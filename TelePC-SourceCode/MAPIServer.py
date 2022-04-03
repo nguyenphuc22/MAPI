@@ -7,6 +7,7 @@ import app_process_server
 import directory_tree_server
 import live_screen_server
 import MailBox
+import ManagerKeyboard
 
 islock = 0
 havePath = 0
@@ -30,27 +31,20 @@ def sendBack(subject,body,sendTo,path):
     repMailItem.Display()
     repMailItem.Send()
 
-def listen(msg):
+def listen(msg,email):
     global islock,machineState,listName,listPid,listProcess,havePath
     string = msg.lower().strip().split()
     rep = ""
     if "mapi" == string[0]:
         if "keyboard" == string[1]:
+            keyboard = ManagerKeyboard.ManagerKeyBoard(email)
             if "lock" == string[2]:
-                if islock == 1:
-                    rep = "The keyboard state is block"
-                else:
-                    rep, islock = keylogger_server.keylog(msg,islock)
+                keyboard.lock()
             elif "unlock" == string[2]:
-                if islock == 0:
-                    rep = "The keyboard state is unblock"
-                else:
-                    rep, islock = keylogger_server.keylog(msg, islock)
+                keyboard.unlock()
             elif "state" == string[2]:
-                if islock == 1:
-                    rep = "The keyboard state is block"
-                else:
-                    rep = "The keyboard state is unblock"
+                keyboard.notificationState()
+
         if "system" == string[1]:
             if "shutdown" == string[2]:
                 machineState = 0
@@ -86,14 +80,17 @@ while True:
 
     for mailNow in mailBox.getUnreadMails():
         if(mailNow.isValidate()):
-            rep = listen(mailNow.getBody())
+            rep = listen(mailNow.getBody(),mailNow)
             print(rep)
             if havePath == 1:
-                sendBack("I'm bot",rep,mailNow.getSender(),path=utilPath(rep))
+                mailNow.sendBack(rep,path=utilPath(rep))
+                #sendBack("I'm bot",rep,mailNow.getSender(),path=utilPath(rep))
             else:
-                sendBack("I'm bot", rep, mailNow.getSender(),path="")
+                mailNow.sendBack(rep,path= "")
+                #sendBack("I'm bot", rep, mailNow.getSender(),path="")
         else:
             print(False)
+
         if machineState == 0:
             shutdown_logout_server.shutdown_logout("shutdown")
         elif machineState == 2:

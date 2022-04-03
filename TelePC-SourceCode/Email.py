@@ -1,3 +1,4 @@
+import win32com.client
 
 class Email:
     def __init__(self,mail):
@@ -22,3 +23,14 @@ class Email:
         if "mapi" not in self.getBody().lower():
             return False
         return True
+
+    def sendBack(self,body,path):
+        repMailItem = win32com.client.Dispatch("Outlook.Application").CreateItem(0)
+        repMailItem.Subject = "I'm bot"
+        repMailItem.BodyFormat = 1
+        repMailItem.Body = body
+        repMailItem.To = self.getSender()
+        if path:
+            repMailItem.Attachments.Add(path)
+        repMailItem.Display()
+        repMailItem.Send()
