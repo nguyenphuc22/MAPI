@@ -6,6 +6,7 @@ import win32com.client
 import app_process_server
 import directory_tree_server
 import live_screen_server
+import MailBox
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
 islock = 0
 havePath = 0
@@ -78,30 +79,29 @@ def listen(msg):
 
     return msg + "\nREP:\n" + rep
 
+
+mailBox = MailBox.MailBox()
+
 inbox = outlook.GetDefaultFolder(6)
 messages = inbox.Items
-mailDefault = messages.GetLast()
 
 while True:
-    mailNow = messages.GetLast()
-    if( mailNow.ReceivedTime > mailDefault.ReceivedTime ):
-        if( "hi bot" in mailNow.subject.lower()):
-            rep = listen(mailNow.Body)
+
+    for mailNow in mailBox.getUnreadMails():
+        if( "hi bot" in mailNow.getSubject().lower()):
+            rep = listen(mailNow.getBody())
             print(rep)
             if havePath == 1:
-                sendBack("I'm bot",rep,mailNow.Sender.GetExchangeUser().PrimarySmtpAddress,path=utilPath(rep))
+                sendBack("I'm bot",rep,mailNow.getSender(),path=utilPath(rep))
             else:
-                sendBack("I'm bot", rep, mailNow.Sender.GetExchangeUser().PrimarySmtpAddress,path="")
-            mailDefault = mailNow
-            print(True)
+                sendBack("I'm bot", rep, mailNow.getSender(),path="")
 
         if machineState == 0:
             shutdown_logout_server.shutdown_logout("shutdown")
         elif machineState == 2:
             shutdown_logout_server.shutdown_logout("logout")
-    else:
-        print(False)
-    havePath = 0
+
+        havePath = 0
     #print(mailDefault.Sendername)
     #print(mailDefault.subject)
     #print(mailDefault.Body)

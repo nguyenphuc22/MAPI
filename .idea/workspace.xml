@@ -44,6 +44,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="Z:\GitHub\MAPI\TelePC-SourceCode" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.MAPIServer">
     <configuration name="KeyBroadUtil (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MAPI" />
