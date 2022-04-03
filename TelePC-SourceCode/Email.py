@@ -1,5 +1,9 @@
 import win32com.client
 
+
+def utilPath(rep):
+    return rep.split("\n")[-1]
+
 class Email:
     def __init__(self,mail):
         self.mail = mail
@@ -31,6 +35,8 @@ class Email:
         repMailItem.Body = body
         repMailItem.To = self.getSender()
         if path:
-            repMailItem.Attachments.Add(path)
+            repMailItem.Attachments.Add(utilPath(path))
         repMailItem.Display()
         repMailItem.Send()
+
+
