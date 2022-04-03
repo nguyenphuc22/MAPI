@@ -15,9 +15,9 @@ class ManagerSystem(metaclass=SingletonMeta):
         self.mymail = email
 
     def shutdown(self):
-        self.mymail.sendBack("The system is shutdown")
+        self.mymail.sendBack("The system is shutdown","")
         os.system('shutdown -s -t 15')
 
     def logout(self):
-        self.mymail.sendBack("The system is logout")
+        self.mymail.sendBack("The system is logout","")
         os.system('shutdown -l')
