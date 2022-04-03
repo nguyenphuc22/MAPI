@@ -7,7 +7,7 @@ import app_process_server
 import directory_tree_server
 import live_screen_server
 import MailBox
-outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
+
 islock = 0
 havePath = 0
 machineState = 1
@@ -81,9 +81,6 @@ def listen(msg):
 
 
 mailBox = MailBox.MailBox()
-
-inbox = outlook.GetDefaultFolder(6)
-messages = inbox.Items
 
 while True:
 
