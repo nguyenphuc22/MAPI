@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51a17b65-b83c-4f77-8854-61dc57f1459d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TelePC-SourceCode/EmailInterface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelePC-SourceCode/Factory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelePC-SourceCode/FactoryGmail.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TelePC-SourceCode/Gmail.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelePC-SourceCode/FactoryOutLook.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,16 +33,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file:////vboxsvr/documents/GitHub/MAPI/TelePC-SourceCode/app_process_server.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/keylogger_server.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/Email.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSystem.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_server.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/keylogger_server.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,6 +60,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/TelePC-SourceCode" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Z:\GitHub\MAPI\TelePC-SourceCode" />
     </key>
