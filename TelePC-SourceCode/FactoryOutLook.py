@@ -1,4 +1,5 @@
 from Factory import Factory
+from OutLook import OutLook
 
 class FactoryOutLook(Factory):
 
@@ -11,6 +12,5 @@ class FactoryOutLook(Factory):
         mails = list()
 
         for message in result:
-            mails.append(Email.Email(message))
-
+            mails.append(OutLook(message))
         return mails
