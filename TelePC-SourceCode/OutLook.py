@@ -1,7 +1,13 @@
+import win32com.client
+from EmailInterface import EmailInterface
 
+
+def utilPath(rep):
+    return rep.split("\n")[-1]
 
 class OutLook(EmailInterface):
 
+    
     def __init__(self,mail):
         self.mail = mail
 

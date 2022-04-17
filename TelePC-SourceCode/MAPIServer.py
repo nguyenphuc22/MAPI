@@ -6,8 +6,8 @@ import ManagerKeyboard
 import ManagerSystem
 import ManagerSoft
 import ManagerFile
-
-
+import FactoryOutLook
+import FactoryGmail
 
 def utilPath(rep):
     return rep.split("\n")[-1]
@@ -60,12 +60,12 @@ def listen(msg,email):
 mailBox = MailBox.MailBox()
 
 while True:
+    mails  = FactoryGmail.FactoryGmail().createMailBox("nguyenphuc2201001@gmail.com","Khutaosong21")
 
-    for mailNow in mailBox.getUnreadMails():
+    for mailNow in mails:
         if(mailNow.isValidate()):
             rep = listen(mailNow.getBody(),mailNow)
             print(rep)
-
         else:
             print(False)
 

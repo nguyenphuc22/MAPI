@@ -1,7 +1,6 @@
-import ManagerKeyboard
+import FactoryOutLook
 
-s1 = ManagerKeyboard.ManagerKeyBoard()
-#s2 = ManagerKeyboard.ManagerKeyBoard()
-print(s1.state)
-#s1.lock()
-#print(s2.state)
+mails = FactoryOutLook.FactoryOutLook().createMailBox("Nickseven123","Hahahaha")
+
+for mail in mails:
+    print(mail.getBody())

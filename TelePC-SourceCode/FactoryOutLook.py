@@ -1,3 +1,5 @@
+import win32com.client
+
 from Factory import Factory
 from OutLook import OutLook
 
