@@ -8,13 +8,13 @@ import ManagerSoft
 import ManagerFile
 import FactoryOutLook
 import FactoryGmail
+import FactoryGmailApi
 
 def utilPath(rep):
     return rep.split("\n")[-1]
 
 def listen(msg,email):
     string = msg.lower().strip().split()
-
     rep = ""
     if "mapi" == string[0]:
         if "keyboard" == string[1]:
@@ -57,17 +57,18 @@ def listen(msg,email):
     return msg + "\nREP:\n" + rep
 
 
-mailBox = MailBox.MailBox()
+#mailBox = MailBox.MailBox()
 
 while True:
-    mails  = FactoryGmail.FactoryGmail().createMailBox("nguyenphuc2201001@gmail.com","Khutaosong21")
-
+    mails  = FactoryGmailApi.FactoryGmailApi().createMailBox("nguyenphuc2201001@gmail.com","Khutaosong21")
+    print(len(mails))
     for mailNow in mails:
         if(mailNow.isValidate()):
+
             rep = listen(mailNow.getBody(),mailNow)
             print(rep)
         else:
-            print(False)
+            print("False" + mailNow.getBody())
 
 
     #print(mailDefault.Sendername)

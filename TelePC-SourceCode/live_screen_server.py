@@ -12,8 +12,8 @@ from threading import Thread
 def capture_screenNow():
     myScreenShot = pyautogui.screenshot()
     timeNow = time.time() * 1000
-    myScreenShot.save(r"C:\\Users\\administrator.HCMUS\\Desktop\\save\\{}.png".format(timeNow))
-    return "C:\\Users\\administrator.HCMUS\\Desktop\\save\\{}.png".format(timeNow)
+    myScreenShot.save(r"{}.png".format(timeNow))
+    return "{}.png".format(timeNow)
 
 def capture_screen(client):
     INFO_SZ = 100

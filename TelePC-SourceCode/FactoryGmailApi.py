@@ -15,7 +15,7 @@ from googleapiclient.errors import HttpError
 
 SCOPES = ['https://mail.google.com/']
 
-class FactoryGmail(Factory):
+class FactoryGmailApi(Factory):
 
     def createMailBox(self, username, password) -> list:
         """Shows basic usage of the Gmail API.
