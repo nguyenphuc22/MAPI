@@ -1,0 +1,71 @@
+import os
+import threading
+import time
+
+import cv2
+
+class SingletonMeta(type):
+    _instances = {}
+
+    def __call__(self, *args, **kwargs):
+        if self not in self._instances:
+            instance = super().__call__(*args,**kwargs)
+            self._instances[self] = instance
+        return self._instances[self]
+
+
+class ManagerWebcam(metaclass=SingletonMeta):
+
+    def __init__(self,email):
+        self.mymail = email
+        self.cam = cv2.VideoCapture(0)
+
+
+    def turnOn(self):
+        if(self.cam.isOpened()):
+            self.mymail.sendBack("Webcam turn on", "")
+            self.isRun = True
+            self.thread = threading.Thread(target=self.show, args=())
+            self.thread.daemon = True
+            self.thread.start()
+
+
+    def turnOff(self):
+        if(self.cam.isOpened()):
+            self.mymail.sendBack("Webcam turn off", "")
+            print("turn off")
+            self.cam.release()
+            self.isRun = False
+            self.thread.join()
+            cv2.destroyAllWindows()
+            cv2.waitKey(1)
+
+
+    def show(self):
+        while self.isRun:
+            if self.cam.isOpened():
+                (self.status, self.frame) = self.cam.read()
+            time.sleep(.01)
+
+    def showFrame(self):
+        # Display frames in main program
+        cv2.imshow('frame', self.frame)
+        key = cv2.waitKey(1)
+        if key == ord('q'):
+            self.turnOff()
+        if key == ord('c'):
+            self.capPicture()
+
+    def capPicture(self):
+        if (self.cam.isOpened()):
+            time.sleep(1)
+            (self.status, self.frame) = self.cam.read()
+            time.sleep(1)
+            timeNow = time.time() * 1000
+            img_name = "{}.png".format(timeNow)
+            cv2.imwrite(img_name, self.frame)
+            print("{} written!".format(img_name))
+            self.mymail.sendBack(img_name, img_name)
+        else:
+            print("Acess Webcam Error")
+            self.mymail.sendBack("Access Webcam Error", "")

