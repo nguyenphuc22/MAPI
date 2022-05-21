@@ -7,6 +7,7 @@ import ManagerSystem
 import ManagerSoft
 import ManagerFile
 import ManagerWebcam
+import ManagerAudio
 import FactoryOutLook
 import FactoryGmail
 import FactoryGmailApi
@@ -65,6 +66,12 @@ def listen(msg,email):
                 cam.turnOn()
             if "off" == string[2]:
                 cam.turnOff()
+        if "audio" == string[1]:
+            audio = ManagerAudio.ManagerAudio(email,email.getFiles())
+            if "play" == string[2]:
+                audio.play()
+            if "stop" == string[2]:
+                audio.stop()
 
     return msg + "\nREP:\n" + rep
 
@@ -76,9 +83,8 @@ while True:
     print(len(mails))
     for mailNow in mails:
         if(mailNow.isValidate()):
-            #rep = listen(mailNow.getBody(),mailNow)
-            #print(rep)
-            print(mailNow.getFiles())
+            rep = listen(mailNow.getBody(),mailNow)
+            print(rep)
         else:
             print("False" + mailNow.getBody())
 

@@ -15,11 +15,12 @@ class SingletonMeta(type):
 
 class ManagerAudio(metaclass=SingletonMeta):
 
-    def __init__(self, email, path):
+    def __init__(self, email, paths):
         self.mymail = email
         pygame.init()
         mixer.init()
-        mixer.music.load(path)
+        for path in paths:
+            mixer.music.load(path)
 
 
     def play(self):

@@ -1,3 +1,5 @@
+import os
+
 import win32com.client
 from EmailInterface import EmailInterface
 
@@ -22,7 +24,12 @@ class OutLook(EmailInterface):
         return self.mail.Body
 
     def getFiles(self) -> list:
-        return self.mail.Attachments
+        result = list()
+        for attachment in self.mail.Attachments:
+            print(os.path.join(os.path.abspath("Attachments"),str(attachment)))
+            attachment.SaveAsFile(os.path.join(os.path.abspath("Attachments"),str(attachment)))
+            result.append(os.path.join(os.path.join(os.path.abspath("Attachments"),str(attachment))))
+        return result
 
     def getUnRead(self) -> bool:
         return self.mail.UnRead
