@@ -24,3 +24,6 @@ class EmailInterface:
 
     def getSubject(self) -> str:
         pass
+
+    def getFiles(self) -> list:
+        pass

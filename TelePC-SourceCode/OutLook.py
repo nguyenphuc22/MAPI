@@ -21,6 +21,8 @@ class OutLook(EmailInterface):
         self.mail.UnRead = False
         return self.mail.Body
 
+    def getFiles(self) -> list:
+        return self.mail.Attachments
 
     def getUnRead(self) -> bool:
         return self.mail.UnRead

@@ -1,5 +1,5 @@
-import ManagerWebcam
+import ManagerAudio
 
-abc = ManagerWebcam.ManagerWebcam("abc")
+abc = ManagerAudio.ManagerAudio("abc", "C:\\Users\\ASUS\\Documents\\GitHub\\MAPI\\TelePC-SourceCode\\example.mp3")
 
-abc.capPicture()
+abc.play()

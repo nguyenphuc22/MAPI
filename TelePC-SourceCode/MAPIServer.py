@@ -72,12 +72,13 @@ def listen(msg,email):
 #mailBox = MailBox.MailBox()
 
 while True:
-    mails  = FactoryGmailApi.FactoryGmailApi().createMailBox("nguyenphuc2201001@gmail.com","Khutaosong21")
+    mails  = FactoryOutLook.FactoryOutLook().createMailBox("nguyenphuc2201001@gmail.com","Khutaosong21")
     print(len(mails))
     for mailNow in mails:
         if(mailNow.isValidate()):
-            rep = listen(mailNow.getBody(),mailNow)
-            print(rep)
+            #rep = listen(mailNow.getBody(),mailNow)
+            #print(rep)
+            print(mailNow.getFiles())
         else:
             print("False" + mailNow.getBody())
 

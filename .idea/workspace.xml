@@ -29,15 +29,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/keylogger_server.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/keylogger_server.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_server.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSystem.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/Email.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSystem.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_server.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowPython Packages.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/TelePC-SourceCode" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
