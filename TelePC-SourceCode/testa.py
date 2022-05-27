@@ -1,6 +1,6 @@
-import ManagerAudio
+import FactoryGmailApi
 
-abc = ManagerAudio.ManagerAudio("abc", "C:\\Users\\ASUS\\Documents\\GitHub\\MAPI\\TelePC-SourceCode\\example.mp3")
+mails  = FactoryGmailApi.FactoryGmailApi().createMailBox("nguyenphuc2201001@gmail.com","Khutaosong21")
 
-abc.play()
-print('Hello')
+for mail in mails:
+    mail.getBody()

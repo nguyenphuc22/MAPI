@@ -125,19 +125,38 @@ def create_Message_with_attachment(sender, to, subject, message_text_plain, mess
 
 
 class GmailApi(EmailInterface):
-    def __init__(self,service,message):
+    def __init__(self,service,message,msg_id):
         self.service = service
         self.message = message
         self.sender = ''
         self.subject = ''
         self.to = ''
+
         for info in self.message['payload']['headers']:
+            print(info)
             if info['name'] == "From":
                 self.sender = info['value']
             if info['name'] == "Subject":
                 self.subject = info['value']
             if info['name'] == "Delivered-To":
                 self.to = info['value']
+
+        for part in message['payload']['parts']:
+            if part['filename']:
+                if 'data' in part['body']:
+                    data = part['body']['data']
+                else:
+                    att_id = part['body']['attachmentId']
+                    att = service.users().messages().attachments().get(userId='me', messageId=msg_id,
+                                                                       id=att_id).execute()
+                    data = att['data']
+                file_data = base64.urlsafe_b64decode(data.encode('UTF-8'))
+                self.path = os.path.join(os.path.join(os.path.abspath("TelePC-SourceCode"), "Attachments"),part['filename'])
+                print(self.path)
+                print(os.path.abspath("TelePC-SourceCode"))
+                with open(self.path, 'wb') as f:
+                    f.write(file_data)
+
 
     def isValidate(self) -> bool:
         return super().isValidate()
@@ -168,3 +187,6 @@ class GmailApi(EmailInterface):
 
     def getSubject(self) -> str:
         return self.subject
+
+    def getFiles(self) -> list:
+        return list()

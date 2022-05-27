@@ -34,7 +34,7 @@ class FactoryGmailApi(Factory):
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    'client.json', SCOPES)
+                    'C:\\Users\\ASUS\\Documents\\GitHub\\MAPI\\TelePC-SourceCode\\client.json', SCOPES)
                 creds = flow.run_local_server(port=0)
             # Save the credentials for the next run
             with open('token.json', 'w') as token:
@@ -55,7 +55,7 @@ class FactoryGmailApi(Factory):
                     modify = service.users().messages().modify(userId='me', id=message['id'],
                                                                body={"removeLabelIds": ['UNREAD']}).execute()
                     msg = service.users().messages().get(userId='me', id=message['id']).execute()
-                    emails.append(GmailApi.GmailApi(service= service,message= msg))
+                    emails.append(GmailApi.GmailApi(service= service,message= msg,msg_id= message['id']))
 
         except HttpError as error:
             # TODO(developer) - Handle errors from gmail API.
