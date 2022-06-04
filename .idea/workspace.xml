@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51a17b65-b83c-4f77-8854-61dc57f1459d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/MAPI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MAPI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/Attachments/example.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/FactoryGmailApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/FactoryGmailApi.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/GmailApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/GmailApi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/keylogger_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerAudio.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerAudio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/token.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +71,7 @@
       <recent name="Z:\GitHub\MAPI\TelePC-SourceCode" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.testa">
+  <component name="RunManager" selected="Python.MAPIServer">
     <configuration name="MAPIServer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MAPI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,9 +179,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MAPIServer" />
         <item itemvalue="Python.testa" />
         <item itemvalue="Python.testa (1)" />
-        <item itemvalue="Python.MAPIServer" />
         <item itemvalue="Python.ManagerAudio" />
         <item itemvalue="Python.test" />
       </list>

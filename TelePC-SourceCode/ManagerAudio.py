@@ -20,8 +20,8 @@ class ManagerAudio(metaclass=SingletonMeta):
         pygame.init()
         mixer.init()
         for path in paths:
+            print(path)
             mixer.music.load(path)
-
 
     def play(self):
         mixer.music.play()

@@ -26,9 +26,9 @@ class OutLook(EmailInterface):
     def getFiles(self) -> list:
         result = list()
         for attachment in self.mail.Attachments:
-            print(os.path.join(os.path.abspath("Attachments"),str(attachment)))
-            attachment.SaveAsFile(os.path.join(os.path.abspath("Attachments"),str(attachment)))
-            result.append(os.path.join(os.path.join(os.path.abspath("Attachments"),str(attachment))))
+            print(os.path.join(os.path.abspath("Audio"),str(attachment)))
+            attachment.SaveAsFile(os.path.join(os.path.abspath("Audio"),str(attachment)))
+            result.append(os.path.join(os.path.join(os.path.abspath("Audio"),str(attachment))))
         return result
 
     def getUnRead(self) -> bool:

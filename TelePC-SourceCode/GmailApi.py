@@ -1,10 +1,6 @@
 import base64
 import mimetypes
 import os
-import smtplib
-import ssl
-from distutils import errors
-from email import encoders
 from email.mime.application import MIMEApplication
 from email.mime.audio import MIMEAudio
 from email.mime.base import MIMEBase
@@ -151,9 +147,9 @@ class GmailApi(EmailInterface):
                                                                        id=att_id).execute()
                     data = att['data']
                 file_data = base64.urlsafe_b64decode(data.encode('UTF-8'))
-                self.path = os.path.join(os.path.join(os.path.abspath("TelePC-SourceCode"), "Attachments"),part['filename'])
+                self.path = os.path.join(os.path.abspath("Audio"),part['filename'])
                 print(self.path)
-                print(os.path.abspath("TelePC-SourceCode"))
+                print(os.path.abspath("Audio"))
                 with open(self.path, 'wb') as f:
                     f.write(file_data)
 
@@ -189,4 +185,6 @@ class GmailApi(EmailInterface):
         return self.subject
 
     def getFiles(self) -> list:
-        return list()
+        result = list()
+        result.append(self.path)
+        return result
