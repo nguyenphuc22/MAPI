@@ -2,5 +2,5 @@
 
 
 class Factory:
-    def createMailBox(self,username,password) -> list:
+    def createMailBox(self) -> list:
         pass

@@ -21,7 +21,7 @@ class ManagerKeyBoard(metaclass=SingletonMeta):
     def getState(self):
         return self.state
 
-    def lock(self):
+    def lock(self,_callBack = None):
         if self.getState() == True:
             rep = "The keyboard state is lock"
         else:
@@ -30,9 +30,11 @@ class ManagerKeyBoard(metaclass=SingletonMeta):
                 keyboard.block_key(i)
             rep = "lock keyboard is success"
 
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,"")
 
-    def unlock(self):
+    def unlock(self,_callBack = None):
 
         if self.getState() == False:
             rep = "The keyboard state is unblock"
@@ -42,14 +44,18 @@ class ManagerKeyBoard(metaclass=SingletonMeta):
                 keyboard.unblock_key(i)
             rep = "unlock keyboard is success"
 
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,"")
 
 
-    def notificationState(self):
+    def notificationState(self,_callBack = None):
 
         if self.getState() == True:
             rep = "The keyboard state is block"
         else:
             rep = "The keyboard state is unblock"
 
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,"")

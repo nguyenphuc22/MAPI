@@ -14,15 +14,21 @@ class ManagerSoft(metaclass=SingletonMeta):
     def __init__(self,email):
         self.mymail = email
 
-    def list(self,msg):
+    def list(self,msg,_callBack = None):
         listName, listPid, listProcess = app_process_server.app_process(msg)
         rep = "\n".join(listName)
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,"")
 
-    def kill(self,msg):
+    def kill(self,msg,_callBack = None):
         rep = app_process_server.app_process(msg)
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,"")
 
-    def start(self,msg):
+    def start(self,msg,_callBack = None):
         rep = app_process_server.app_process(msg)
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,"")

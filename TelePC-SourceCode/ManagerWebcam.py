@@ -21,18 +21,22 @@ class ManagerWebcam(metaclass=SingletonMeta):
         self.cam = cv2.VideoCapture(0)
 
 
-    def turnOn(self):
+    def turnOn(self,_callBack = None):
         if(self.cam.isOpened()):
             self.mymail.sendBack("Webcam turn on", "")
+            if _callBack:
+                _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), "Webcam turn on")
             self.isRun = True
             self.thread = threading.Thread(target=self.show, args=())
             self.thread.daemon = True
             self.thread.start()
 
 
-    def turnOff(self):
+    def turnOff(self,_callBack = None):
         if(self.cam.isOpened()):
             self.mymail.sendBack("Webcam turn off", "")
+            if _callBack:
+                _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), "Webcam turn off")
             print("turn off")
             self.cam.release()
             self.isRun = False
@@ -56,7 +60,7 @@ class ManagerWebcam(metaclass=SingletonMeta):
         if key == ord('c'):
             self.capPicture()
 
-    def capPicture(self):
+    def capPicture(self,_callBack = None):
         if (self.cam.isOpened()):
             time.sleep(1)
             (self.status, self.frame) = self.cam.read()
@@ -66,6 +70,10 @@ class ManagerWebcam(metaclass=SingletonMeta):
             cv2.imwrite(img_name, self.frame)
             print("{} written!".format(img_name))
             self.mymail.sendBack(img_name, img_name)
+            if _callBack:
+                _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), img_name)
         else:
             print("Acess Webcam Error")
+            if _callBack:
+                _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), "Access Webcam Error")
             self.mymail.sendBack("Access Webcam Error", "")

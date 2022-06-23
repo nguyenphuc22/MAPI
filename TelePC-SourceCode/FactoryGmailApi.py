@@ -17,7 +17,11 @@ SCOPES = ['https://mail.google.com/']
 
 class FactoryGmailApi(Factory):
 
-    def createMailBox(self, username, password) -> list:
+    def __init__(self,username,password):
+        self.username = username
+        self.password = password
+
+    def createMailBox(self) -> list:
         """Shows basic usage of the Gmail API.
             Lists the user's Gmail labels.
             """

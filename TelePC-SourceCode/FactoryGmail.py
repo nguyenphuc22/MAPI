@@ -5,11 +5,13 @@ import email
 import traceback
 
 class FactoryGmail(Factory):
+    def __init__(self,username,password):
+        self.username = username
+        self.password = password
 
-    def createMailBox(self,username,password) -> list:
-
-        FROM_EMAIL = username
-        FROM_PWD = password
+    def createMailBox(self) -> list:
+        FROM_EMAIL = self.username
+        FROM_PWD = self.password
         SMTP_SERVER = "imap.gmail.com"
         SMTP_PORT = 993
         emails = list()

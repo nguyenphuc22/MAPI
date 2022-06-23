@@ -23,7 +23,7 @@ class ManagerAudio(metaclass=SingletonMeta):
             print(path)
             mixer.music.load(path)
 
-    def play(self):
+    def play(self,_callBack = None):
         mixer.music.play()
         self.thread = threading.Thread(target=self.update_audio, args=())
         self.thread.daemon = True
@@ -39,6 +39,6 @@ class ManagerAudio(metaclass=SingletonMeta):
     def unpause(self):
         mixer.music.unpause()
 
-    def stop(self):
+    def stop(self,_callBack = None):
         mixer.music.stop()
         self.thread.join()

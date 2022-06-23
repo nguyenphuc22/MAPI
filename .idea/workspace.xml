@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51a17b65-b83c-4f77-8854-61dc57f1459d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TelePC-SourceCode/view_client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/GmailApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/GmailApi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/1652200856530.4832.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/1652201960996.769.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/1654348464442.5303.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/1654348520202.3062.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/1654348844074.6448.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/Factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/Factory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/FactoryGmail.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/FactoryGmail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/FactoryGmailApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/FactoryGmailApi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/FactoryOutLook.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/FactoryOutLook.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerAudio.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerAudio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerFile.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerFile.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerSystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerSystem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerWebcam.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerWebcam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/token.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +85,7 @@
       <recent name="Z:\GitHub\MAPI\TelePC-SourceCode" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.MAPIServer">
+  <component name="RunManager" selected="Python.view_client">
     <configuration name="MAPIServer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MAPI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -106,27 +120,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TelePC-SourceCode/ManagerAudio.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="MAPI" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\administrator.HCMUS\AppData\Local\Programs\Python\Python39\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TelePC-SourceCode" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TelePC-SourceCode/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -177,13 +170,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="view_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MAPI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TelePC-SourceCode" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TelePC-SourceCode/view_client.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.view_client" />
         <item itemvalue="Python.MAPIServer" />
         <item itemvalue="Python.testa" />
         <item itemvalue="Python.testa (1)" />
         <item itemvalue="Python.ManagerAudio" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>

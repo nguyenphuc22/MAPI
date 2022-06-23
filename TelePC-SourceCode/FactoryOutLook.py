@@ -4,8 +4,11 @@ from Factory import Factory
 from OutLook import OutLook
 
 class FactoryOutLook(Factory):
+    def __init__(self,username,password):
+        self.username = username
+        self.password = password
 
-    def createMailBox(self,username,password) -> list:
+    def createMailBox(self) -> list:
         outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
         inbox = outlook.GetDefaultFolder(6)
         self.mails = inbox.Items

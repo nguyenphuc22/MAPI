@@ -15,10 +15,14 @@ class ManagerFile(metaclass=SingletonMeta):
         self.state = False
         self.mymail = email
 
-    def list(self,msg):
+    def list(self,msg,_callBack = None):
         rep = directory_tree_server.getTree(msg)
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,"")
 
-    def send(self,msg):
+    def send(self,msg,_callBack = None):
         rep = directory_tree_server.getPathFile(msg)
+        if _callBack:
+            _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(),rep)
         self.mymail.sendBack(rep,rep)
