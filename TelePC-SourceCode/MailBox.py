@@ -55,7 +55,7 @@ class MailBox:
                     file.send(msg,_callBack)
 
             if "screen" == string[1]:
-                screen = ManagerScreen.ManagerKeyBoard(email)
+                screen = ManagerScreen.ManagerScreen(email)
                 if "scap" == string[2]:
                     screen.scap(_callBack)
 

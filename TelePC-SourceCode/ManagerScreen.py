@@ -9,7 +9,7 @@ class SingletonMeta(type):
         return self._instances[self]
 
 
-class ManagerKeyBoard(metaclass=SingletonMeta):
+class ManagerScreen(metaclass=SingletonMeta):
 
     def __init__(self,email):
         self.mymail = email

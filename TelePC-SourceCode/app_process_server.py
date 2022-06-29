@@ -151,7 +151,6 @@ def run(msg):
     os.startfile(r"{}".format(msg))
 
 def app_process(msg):
-
     if "quit" in msg:
         return
     res = 0
@@ -161,10 +160,10 @@ def app_process(msg):
     #0-kill
     if "kill" in msg:
         if not ls1:
-          ls1,ls2,ls3 = list_apps()
-        nameSoft = msg[msg.index("kill") + 4:len(msg)].strip()
-        pid = ls2[ls1.index(nameSoft)]
-        pid = int(pid)
+            ls1,ls2,ls3 = list_apps()
+            nameSoft = msg[msg.index("kill") + 4:len(msg)].strip()
+            pid = ls2[ls1.index(nameSoft)]
+            pid = int(pid)
         try:
             res = kill(pid)
         except:
