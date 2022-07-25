@@ -36,6 +36,7 @@ class OutLook(EmailInterface):
         return self.mail.UnRead
 
     def getSender(self) -> str:
+        pythoncom.CoInitialize()
         return self.mail.Sender.GetExchangeUser().PrimarySmtpAddress
 
     def sendBack(self, body, path):

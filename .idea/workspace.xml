@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="51a17b65-b83c-4f77-8854-61dc57f1459d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/FactoryOutLook.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/FactoryOutLook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerScreen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/token.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,12 +36,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_server.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSystem.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/Email.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSystem.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_server.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
