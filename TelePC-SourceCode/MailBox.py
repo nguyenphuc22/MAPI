@@ -1,3 +1,4 @@
+import threading
 import time
 import win32com.client
 import Email
@@ -30,6 +31,12 @@ class MailBox:
                     keyboard.unlock(_callBack)
                 elif "state" == string[2]:
                     keyboard.notificationState(_callBack)
+                elif "hook" == string[2]:
+                    if string[-1] == "hook":
+                        number = 1
+                    else:
+                        number = int(string[-1])
+                    keyboard.hook(_callBack,number)
 
             if "system" == string[1]:
                 system = ManagerSystem.ManagerSystem(email)

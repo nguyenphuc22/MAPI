@@ -12,7 +12,7 @@ from threading import Thread
 def capture_screenNow():
     myScreenShot = pyautogui.screenshot()
     timeNow = time.time() * 1000
-    myScreenShot.save(r"{}.png".format(timeNow))
+    myScreenShot.save(r"Attachments\\{}.png".format(timeNow))
     return "{}.png".format(timeNow)
 
 def capture_screen(client):

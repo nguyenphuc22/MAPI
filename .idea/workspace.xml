@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="51a17b65-b83c-4f77-8854-61dc57f1459d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/FactoryOutLook.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/FactoryOutLook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerScreen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/token.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,16 +214,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py</url>
-          <line>191</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

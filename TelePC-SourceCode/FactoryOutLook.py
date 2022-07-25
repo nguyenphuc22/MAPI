@@ -1,3 +1,4 @@
+import pythoncom
 import win32com.client
 
 from Factory import Factory
@@ -9,6 +10,7 @@ class FactoryOutLook(Factory):
         self.password = password
 
     def createMailBox(self) -> list:
+        pythoncom.CoInitialize()
         outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
         inbox = outlook.GetDefaultFolder(6)
         self.mails = inbox.Items

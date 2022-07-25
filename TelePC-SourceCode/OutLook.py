@@ -1,5 +1,6 @@
 import os
 
+import pythoncom
 import win32com.client
 from EmailInterface import EmailInterface
 
@@ -38,11 +39,14 @@ class OutLook(EmailInterface):
         return self.mail.Sender.GetExchangeUser().PrimarySmtpAddress
 
     def sendBack(self, body, path):
+        pythoncom.CoInitialize()
         repMailItem = win32com.client.Dispatch("Outlook.Application").CreateItem(0)
         repMailItem.Subject = "I'm bot"
         repMailItem.BodyFormat = 1
         repMailItem.Body = body
         repMailItem.To = self.getSender()
+        print(path)
+        print(utilPath(path))
         if path:
             repMailItem.Attachments.Add(utilPath(path))
         repMailItem.Display()

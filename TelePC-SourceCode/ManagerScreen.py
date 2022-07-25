@@ -1,3 +1,5 @@
+import os
+
 import live_screen_server
 class SingletonMeta(type):
     _instances = {}
@@ -16,6 +18,8 @@ class ManagerScreen(metaclass=SingletonMeta):
 
     def scap(self,_callBack = None):
         rep = live_screen_server.capture_screenNow()
+        rep = os.path.join(os.path.abspath("Attachments"),str(rep))
+        print("rep" + rep)
         if _callBack:
             _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), rep)
         self.mymail.sendBack(rep,rep)
