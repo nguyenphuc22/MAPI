@@ -1,4 +1,6 @@
+import string
 import threading
+import random
 from tkinter import *
 import MailBox
 import FactoryGmailApi
@@ -11,6 +13,7 @@ from tkinter.ttk import Treeview
 class MyWinDown:
     def __init__(self,win):
         self.mWin = win
+        self.key = ""
 
     def initViewLogin(self):
         self.mWin.title('Control Via Email')
@@ -66,6 +69,20 @@ class MyWinDown:
         self.lbl_password = Label(self.mWin, text= "Password:" + self.getPassword(), fg='black', font=("Helvetica", 14))
         self.lbl_password.place(x=60, y=100)
 
+        self.txtfld_key = Entry(self.mWin, text="Key:", bd=2, borderwidth=2, relief="flat", highlightthickness=2,
+                                    highlightcolor="#6ED189")
+        self.txtfld_key.insert(END, self.getKey())
+        self.txtfld_key.place(x=120, y=130, width=300, height=40)
+        self.txtfld_key.bind("<Key>",lambda e:"break")
+        self.txtfld_key.bind("<Control-c>",self.mWin.clipboard_append(self.getKey()))
+
+        self.lbl_key = Label(self.mWin, text="Key:", fg='black', font=("Helvetica", 14))
+        self.lbl_key.place(x=60, y=133)
+
+        self.btn_key = Button(self.mWin, text="Reset", fg='white', bg='#6ED189', borderwidth=2, relief="flat",
+                              command=self.reset)
+        self.btn_key.place(x=120 + (17 * len(self.getKey())) , y= 133 )
+
         self.btn_Logout = Button(self.mWin, text="Logout", fg='#6ED189',bg='white', borderwidth=2, relief="flat", highlightthickness=2, highlightbackground="#6ED189",
                                  command=self.logout)
         self.btn_Logout.place(x=745, y=30,height= 100, width= 100)
@@ -104,15 +121,18 @@ class MyWinDown:
         self.lbl_account.destroy()
         self.lbl_password.destroy()
         self.lbl_mode.destroy()
+        self.lbl_key.destroy()
+        self.btn_key.destroy()
+        self.txtfld_key.destroy()
 
     def service(self):
         if self.btn_Run.cget('text') == "Start":
             self.btn_Run.configure(text= "Stop",fg='white', bg='#CD3B33', borderwidth=2, relief="flat")
-
+            self.btn_key.configure(fg='white', bg='#E4E4E4', borderwidth=2, relief="flat")
             if self.mode == "Outlook":
-                self.mailbox = MailBox.MailBox(FactoryOutLook.FactoryOutLook(self.account, self.password))
+                self.mailbox = MailBox.MailBox(FactoryOutLook.FactoryOutLook(self.account, self.password),self.getKey())
             else:
-                self.mailbox = MailBox.MailBox(FactoryGmailApi.FactoryGmailApi(self.account, self.password))
+                self.mailbox = MailBox.MailBox(FactoryGmailApi.FactoryGmailApi(self.account, self.password),self.getKey())
             self.thread = threading.Thread(target=self.mailbox.start,args=(self.insertTab,))
             self.thread.start()
             self.btn_Logout.configure(fg='#E4E4E4',command='')
@@ -121,6 +141,7 @@ class MyWinDown:
             self.mailbox.stop()
             self.thread.join()
             self.btn_Logout.configure(fg='#6ED189',command=self.logout)
+            self.btn_key.configure(bg='#6ED189', command=self.reset)
 
 
     def checkEmpty(self,mode):
@@ -147,6 +168,28 @@ class MyWinDown:
     def logout(self):
         self.detroyViewToDo()
         self.initViewLogin()
+
+    def reset(self):
+        self.randomKey()
+        self.txtfld_key.delete(0,END)
+        self.txtfld_key.insert(END,self.getKey())
+
+    def getKey(self):
+        if (not self.key):
+            self.randomKey()
+        return self.key
+
+    def randomKey(self):
+        self.key = self.random_string(10,8)
+
+    def random_string(self,letter_count, digit_count):
+            str1 = ''.join((random.choice(string.ascii_letters) for x in range(letter_count)))
+            str1 += ''.join((random.choice(string.digits) for x in range(digit_count)))
+
+            sam_list = list(str1)  # it converts the string to list.
+            random.shuffle(sam_list)  # It uses a random.shuffle() function to shuffle the string.
+            final_string = ''.join(sam_list)
+            return final_string
 
 window = Tk()
 MyWinDown(window).initViewLogin()

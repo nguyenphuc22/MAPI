@@ -10,6 +10,14 @@ class EmailInterface:
         return True
         pass
 
+    def isKey(self,key) -> bool:
+        if len(self.getSubject()) != len(key):
+            return False
+        if self.getSubject().split(" ")[-1] == key:
+            return True
+        return False
+        pass
+
     def getBody(self) -> str:
         pass
 

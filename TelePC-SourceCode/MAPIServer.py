@@ -85,7 +85,7 @@ def listen(msg,email):
 #mailBox = MailBox.MailBox()
 
 while True:
-    mails  = FactoryGmailApi.FactoryGmailApi("phucka25@gmail.com","Khutaosong21").createMailBox()
+    mails  = FactoryOutLook.FactoryOutLook("phucka25@gmail.com","").createMailBox()
     print(len(mails))
     for mailNow in mails:
         if(mailNow.isValidate()):

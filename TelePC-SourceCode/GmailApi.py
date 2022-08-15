@@ -188,3 +188,6 @@ class GmailApi(EmailInterface):
         result = list()
         result.append(self.path)
         return result
+
+    def isKey(self,key) -> bool:
+        return super().isKey(key)
