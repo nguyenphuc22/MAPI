@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51a17b65-b83c-4f77-8854-61dc57f1459d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/MAPI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MAPI.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/EmailInterface.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/EmailInterface.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/GmailApi.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/GmailApi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/OutLook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/token.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/view_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/view_client.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/KeyBroadUtil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/app_process_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/directory_tree_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/directory_tree_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/directory_tree_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/entrance_ui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/keylogger_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/mac_address_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/mac_address_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/main_ui.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/registry_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/registry_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_client.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +55,6 @@
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerKeyboard.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/ManagerSoft.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_server.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MAPIServer.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TelePC-SourceCode/MailBox.py" root0="FORCE_HIGHLIGHTING" />
   </component>

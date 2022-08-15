@@ -1,14 +1,6 @@
 import  pickle, psutil, struct
 import os
 
-BUFSIZ = 1024 * 4
-
-def send_data(client, data):
-    size = struct.pack('!I', len(data))
-    data = size + data
-    client.sendall(data)
-    return
-
 def list_apps():
     ls1 = list()
     ls2 = list()
@@ -92,59 +84,6 @@ def kill(pid):
     
 def start(name):
     os.system(name)
-    return
-
-def app_process(client):
-    global msg
-    while True:
-        msg = client.recv(BUFSIZ).decode("utf8")
-        if "QUIT" in msg and len(msg) < 20:
-            return
-        res = 0
-        ls1 = list()
-        ls2 = list()
-        ls3 = list()
-        action = int(msg)
-        #0-kill
-        if action == 0:
-            pid = client.recv(BUFSIZ).decode("utf8")
-            pid = int(pid)
-            try:
-                res = kill(pid)
-            except:
-                res = 0
-        #1-xem
-        elif action == 1:
-            try:
-                status = client.recv(BUFSIZ).decode("utf8")
-                if "PROCESS" in status:
-                    ls1, ls2, ls3 = list_apps()
-                else:
-                    ls1, ls2, ls3 = list_processes()
-                res = 1
-            except:
-                res = 0
-        #2-xoa
-        elif action == 2:
-            res = 1
-        #3 - start
-        elif action == 3:
-            pname = client.recv(BUFSIZ).decode("utf8")
-            try:
-                start(pname)
-                res = 1
-            except:
-                res = 0
-        if action != 1 and action != 3:
-            client.sendall(bytes(str(res), "utf8"))
-        if action == 1:
-            ls1 = pickle.dumps(ls1)
-            ls2 = pickle.dumps(ls2)
-            ls3 = pickle.dumps(ls3)
-
-            send_data(client, ls1)   
-            send_data(client, ls2)
-            send_data(client, ls3)
     return
 
 def run(msg):
