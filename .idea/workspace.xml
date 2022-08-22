@@ -6,25 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="51a17b65-b83c-4f77-8854-61dc57f1459d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/KeyBroadUtil.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/app_process_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/app_process_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/directory_tree_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/directory_tree_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/directory_tree_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/entrance_ui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/keylogger_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/live_screen_server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/mac_address_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/mac_address_server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/main_ui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/registry_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/registry_server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/shutdown_logout_server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/testa.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TelePC-SourceCode/ManagerWebcam.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelePC-SourceCode/ManagerWebcam.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

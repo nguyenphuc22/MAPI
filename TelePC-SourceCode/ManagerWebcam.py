@@ -3,6 +3,8 @@ import threading
 import time
 
 import cv2
+import directory_tree_server
+
 
 class SingletonMeta(type):
     _instances = {}
@@ -18,10 +20,11 @@ class ManagerWebcam(metaclass=SingletonMeta):
 
     def __init__(self,email):
         self.mymail = email
-        self.cam = cv2.VideoCapture(0)
+    #    self.cam = cv2.VideoCapture(0)
 
 
     def turnOn(self,_callBack = None):
+        self.cam = cv2.VideoCapture(0)
         if(self.cam.isOpened()):
             self.mymail.sendBack("Webcam turn on", "")
             if _callBack:
@@ -66,10 +69,17 @@ class ManagerWebcam(metaclass=SingletonMeta):
             (self.status, self.frame) = self.cam.read()
             time.sleep(1)
             timeNow = time.time() * 1000
-            img_name = "{}.png".format(timeNow)
+            img_name = r"Attachments\{}.png".format(timeNow)
             cv2.imwrite(img_name, self.frame)
+            time.sleep(1)
             print("{} written!".format(img_name))
-            self.mymail.sendBack(img_name, img_name)
+            rep = os.path.abspath(img_name)
+            print(rep)
+            print(os.path.abspath("Attachments"))
+            print(img_name)
+            print(os.path.abspath(img_name))
+
+            self.mymail.sendBack(img_name, rep)
             if _callBack:
                 _callBack(self.mymail.getSender(), self.mymail.getSubject(), self.mymail.getBody(), img_name)
         else:
